@@ -1,6 +1,6 @@
 # AvaloniaAccordion: an accordion-like expandable control for Avalonia
 
-<img src="icon.svg" width="256" align="right">
+<img src="icon.svg" width="128" align="right">
 
 **AvaloniaAccordion** is an "accordion" control for Avalonia. This control is similar to an `Expander`, in the sense that it can be in an "open" state, in which its contents are shown, or in a "closed" state, in which the contents are hidden and only the header is shown.
 
@@ -61,7 +61,7 @@ The main properties of the `Accordion` control are:
 
 * The `ArrowPosition` property determines the positon of the arrows in the header (i.e. to the left, to the right, neither or both).
 
-The control also has a public `InvalidateHeight` method; this method should be called every time that the height of the content of the accordion changes, so that the accordion is notified of this and can update its height to match the content. If you are using nested `Accordion`s, each one will automatically notify its first `Accordion` ancestor; otherwise, if you are using other kinds of controls that can change size, you need to manually invoke the methow whenever the height changes.
+The control also has a public `InvalidateHeight` method; this method should be called every time that the height of the content of the accordion changes, so that the accordion is notified of this and can update its height to match the content. If you are using nested `Accordion`s, each one will automatically notify its first `Accordion` ancestor; otherwise, if you are using other kinds of controls that can change size, you need to manually invoke the method whenever the height changes.
 
 ## Source code
 
