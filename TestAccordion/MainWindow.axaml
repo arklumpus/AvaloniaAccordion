@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:acc="clr-namespace:AvaloniaAccordion;assembly=AvaloniaAccordion"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TestAccordion.MainWindow"
+        Title="TestAccordion">
+  <Grid Margin="5">
+    <acc:Accordion IsOpen="True" ArrowSize="18" ArrowPosition="Left">
+      
+      <!-- Define the header of the accordion -->
+      <acc:Accordion.AccordionHeader>
+        <TextBlock VerticalAlignment="Center" FontWeight="Bold" Margin="0, 10, 10, 10" Foreground="White">This is an accordion control</TextBlock>
+      </acc:Accordion.AccordionHeader>
+
+      <!-- Define the contents of the accordion -->
+      <acc:Accordion.AccordionContent>
+        <StackPanel Margin="10, 5">
+
+          <!-- A few random controls -->
+          <CheckBox>CheckBox</CheckBox>
+          <RadioButton>RadioButton</RadioButton>
+          <Button>Button</Button>
+          <TextBox Margin="0,5">TextBox</TextBox>
+
+          <!-- A nested accordion control -->
+          <acc:Accordion IsOpen="True" ArrowSize="18" ArrowPosition="Left" HeaderBackground="#009E73" BottomBarBrush="#009E73" ContentBackground="#F0FFF5" HeaderHoverBackground="#2BAF84" HeaderPressedBackground="#25875E">
+
+            <!-- Define the header of the accordion -->
+            <acc:Accordion.AccordionHeader>
+              <TextBlock VerticalAlignment="Center" FontWeight="Bold" Margin="0, 10, 10, 10" Foreground="White">This is a nested accordion control</TextBlock>
+            </acc:Accordion.AccordionHeader>
+
+            <!-- Define the contents of the accordion -->
+            <acc:Accordion.AccordionContent>
+              <StackPanel Margin="10, 5">
+                <CheckBox>CheckBox 2</CheckBox>
+                <RadioButton>RadioButton 2</RadioButton>
+                <Button>Button 2</Button>
+                <TextBox Margin="0,5">TextBox 2</TextBox>
+              </StackPanel>
+            </acc:Accordion.AccordionContent>
+          </acc:Accordion>
+
+        </StackPanel>
+      </acc:Accordion.AccordionContent>
+    </acc:Accordion>
+  </Grid>
+</Window>

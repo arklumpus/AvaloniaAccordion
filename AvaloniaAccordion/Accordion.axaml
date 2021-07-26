@@ -1,0 +1,95 @@
+<!--
+    AvaloniaAccordion - An accordion-like expandable control for Avalonia.
+    Copyright (C) 2021  Giorgio Bianchini
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, version 3.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:accordion="clr-namespace:AvaloniaAccordion;assembly=AvaloniaAccordion"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAccordion.Accordion">
+  <UserControl.Resources>
+    <accordion:AccordionHeightConverter x:Key="AccordionHeightConverter" />
+    <accordion:AccordionAngleConverter x:Key="AccordionAngleConverter" />
+    <accordion:AccordionArrowPositionConverter x:Key="AccordionArrowPositionConverter" />
+  </UserControl.Resources>
+  <UserControl.Styles>
+    <Style Selector="Grid#HeaderGrid">
+      <Setter Property="Background" Value="{Binding $parent[1].HeaderBackground}"/>
+    </Style>
+
+    <Style Selector="Grid#HeaderGrid:pointerover">
+      <Setter Property="Background" Value="{Binding $parent[1].HeaderHoverBackground}"/>
+    </Style>
+
+    <Style Selector="Grid#HeaderGrid.Pressed">
+      <Setter Property="Background" Value="{Binding $parent[1].HeaderPressedBackground}"/>
+    </Style>
+  </UserControl.Styles>
+  <StackPanel VerticalAlignment="Top">
+    <Grid Name="HeaderGrid" Cursor="Hand">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Viewbox Width="{Binding $parent[2].ArrowSize}" ClipToBounds="False" Margin="5, 3, 5, 3" IsVisible="{Binding $parent[2].ArrowPosition, Converter={StaticResource AccordionArrowPositionConverter} ConverterParameter=1}">
+        <Canvas Width="16" Height="16" ClipToBounds="False">
+          <Path Data="M2,6 L8,12 L14,6" StrokeThickness="2" Stroke="{Binding $parent[4].HeaderForeground}" StrokeLineCap="Round" StrokeJoin="Round" Width="16" Height="16" ClipToBounds="False" Name="ArrowPathLeft">
+            <Path.RenderTransform>
+              <RotateTransform Angle="{Binding $parent[4].IsOpen, Converter={StaticResource AccordionAngleConverter}}">
+                <RotateTransform.Transitions>
+                  <Transitions>
+                    <DoubleTransition Property="Angle"/>
+                  </Transitions>
+                </RotateTransform.Transitions>
+              </RotateTransform>
+            </Path.RenderTransform>
+          </Path>
+        </Canvas>
+      </Viewbox>
+      <ContentPresenter Content="{Binding $parent[2].AccordionHeader}" Grid.Column="1" />
+      <Viewbox Width="{Binding $parent[2].ArrowSize}" ClipToBounds="False" Margin="5, 3, 5, 3" Grid.Column="2" IsVisible="{Binding $parent[2].ArrowPosition, Converter={StaticResource AccordionArrowPositionConverter} ConverterParameter=2}">
+        <Canvas Width="16" Height="16" ClipToBounds="False">
+          <Path Data="M2,6 L8,12 L14,6" StrokeThickness="2" Stroke="{Binding $parent[4].HeaderForeground}" StrokeLineCap="Round" StrokeJoin="Round" Width="16" Height="16" ClipToBounds="False" Name="ArrowPathRight">
+            <Path.RenderTransform>
+              <RotateTransform Angle="{Binding $parent[4].IsOpen, Converter={StaticResource AccordionAngleConverter}}">
+                <RotateTransform.Transitions>
+                  <Transitions>
+                    <DoubleTransition Property="Angle"/>
+                  </Transitions>
+                </RotateTransform.Transitions>
+              </RotateTransform>
+            </Path.RenderTransform>
+          </Path>
+        </Canvas>
+      </Viewbox>
+    </Grid>
+    <Grid Height="{Binding $parent[1].IsOpen, Converter={StaticResource AccordionHeightConverter}}" Background="{Binding $parent[1].ContentBackground}" ClipToBounds="True" Name="ContentGridParent">
+      <Grid.Transitions>
+        <Transitions>
+          <DoubleTransition Property="Grid.Height"></DoubleTransition>
+        </Transitions>
+      </Grid.Transitions>
+      <Grid Name="ContentGrid" ClipToBounds="True" VerticalAlignment="Top">
+        <ContentPresenter Content="{Binding $parent[3].AccordionContent}" />
+      </Grid>
+    </Grid>
+    <Canvas Height="{Binding $parent[1].BottomBarThickness}" Background="{Binding $parent[1].BottomBarBrush}" Name="BottomCanvas" ZIndex="-1" />
+
+  </StackPanel>
+
+
+</UserControl>

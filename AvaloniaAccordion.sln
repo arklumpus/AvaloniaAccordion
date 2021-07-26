@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAccordion", "TestAccordion\TestAccordion.csproj", "{B008BCFF-0915-4EFA-AAD6-A69F8AC4E08D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaAccordion", "AvaloniaAccordion\AvaloniaAccordion.csproj", "{A3FB540B-FF11-4C47-8AB6-1582FAE90A0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B008BCFF-0915-4EFA-AAD6-A69F8AC4E08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B008BCFF-0915-4EFA-AAD6-A69F8AC4E08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B008BCFF-0915-4EFA-AAD6-A69F8AC4E08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B008BCFF-0915-4EFA-AAD6-A69F8AC4E08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FB540B-FF11-4C47-8AB6-1582FAE90A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FB540B-FF11-4C47-8AB6-1582FAE90A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FB540B-FF11-4C47-8AB6-1582FAE90A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FB540B-FF11-4C47-8AB6-1582FAE90A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C612F9E-A21E-4798-874F-4A119ADF7D5B}
+	EndGlobalSection
+EndGlobal
